@@ -1,0 +1,139 @@
+#Made By WaterWolf#5918
+#Discord: WaterWolf#5918
+#Email: firewolf@null.net
+#Do Not Remove
+
+
+#
+#    █     █░ ▄▄▄     ▄▄▄█████▓▓█████  ██▀███      ▄▄▄▄    ▒█████  ▄▄▄█████▓
+#   ▓█░ █ ░█░▒████▄   ▓  ██▒ ▓▒▓█   ▀ ▓██ ▒ ██▒   ▓█████▄ ▒██▒  ██▒▓  ██▒ ▓▒
+#   ▒█░ █ ░█ ▒██  ▀█▄ ▒ ▓██░ ▒░▒███   ▓██ ░▄█ ▒   ▒██▒ ▄██▒██░  ██▒▒ ▓██░ ▒░
+#   ░█░ █ ░█ ░██▄▄▄▄██░ ▓██▓ ░ ▒▓█  ▄ ▒██▀▀█▄     ▒██░█▀  ▒██   ██░░ ▓██▓ ░
+#   ░░██▒██▓  ▓█   ▓██▒ ▒██▒ ░ ░▒████▒░██▓ ▒██▒   ░▓█  ▀█▓░ ████▓▒░  ▒██▒ ░
+#   ░ ▓░▒ ▒   ▒▒   ▓▒█░ ▒ ░░   ░░ ▒░ ░░ ▒▓ ░▒▓░   ░▒▓███▀▒░ ▒░▒░▒░   ▒ ░░
+#     ▒ ░ ░    ▒   ▒▒ ░   ░     ░ ░  ░  ░▒ ░ ▒░   ▒░▒   ░   ░ ▒ ▒░     ░
+#     ░   ░    ░   ▒    ░         ░     ░░   ░     ░    ░ ░ ░ ░ ▒    ░
+#       ░          ░  ░           ░  ░   ░         ░          ░ ░
+#                                                       ░
+#
+
+options:
+	ver: 4.2.0
+	error: &c[ ! ] You May Not Command WaterBot [ ! ]
+	cmdpre: &6<>| &9Run &6|<>
+	prefix: &x&3&3&0&0&f&f&lW&x&2&e&1&a&f&f&la&x&2&9&3&3&f&f&lt&x&2&4&4&d&f&f&le&x&1&f&6&6&f&f&lr&x&1&a&8&0&f&f&lB&x&1&4&9&9&f&f&lo&x&0&f&b&3&f&f&lt&x&0&a&c&c&f&f&l:&x&0&5&e&6&f&f&l-&x&0&0&f&f&f&f&l$&r&6
+	Staff_override: false
+
+on load:
+	set {_v} to text from "https://raw.githubusercontent.com/Nightowl2007W/WaterBot/main/version.txt"
+	set {_v2::*} to {_v} split at "version:"
+	set {_version} to {_v2::2}
+	set {_ver} to "{@ver}"
+	if {_v2::2} isn't {_ver}:
+		wait 40 ticks
+		send "&9WaterBot&6 a new release is available%nl%Download it now https://github.com/Nightowl2007W/WaterBot/releases" to console
+	set {welcomeText} to text from "https://raw.githubusercontent.com/Nightowl2007W/WaterBot/main/welcome.txt"
+
+	set {_p} to text from "https://raw.githubusercontent.com/Nightowl2007W/WaterBot/main/player.txt"
+	set {permp::*} to {_p} split at ","
+	
+
+
+
+
+on chat:
+	set {_msg} to message
+	if {_msg} contains "hello waterbot":
+		wait 5 ticks
+		broadcast "{@prefix}&3 Hello %player%"
+	if {_msg} contains "pick a number":
+		set {_num} to a random integer between 1 and 50
+		wait 5 ticks
+		broadcast "{@prefix} I Pick %{_num}%"
+	if {_msg} contains "gtg" or "got to go":
+		if sender is "WaterWolf5918":
+			wait 5 ticks
+			broadcast "{@prefix} GoodBye Master I Will Watch The Melon Farm For You :)"
+	if {_msg} is "welcome" or "Welcome":
+		if {permp::*} contains sender:
+			cancel event
+			wait 2 ticks
+			broadcast " %colored player's display name%&r >> %{welcomeText}%"
+
+
+on chat:
+	set {_msg} to message
+	if {permp::*} contains sender:
+		if {_msg} is "$info":
+			cancel event
+			send "{@prefix} &6Running %{_msg}%"
+			broadcast "&3           _"
+			broadcast "&9\     /   &3|_)  &bWaterBot &lV4"
+			broadcast " &9\/\/    &3|_)  &7Running on H2O - Water"
+			broadcast " "
+		if {_msg} is "$clear":
+			cancel event
+			send "{@prefix} &6Running %{_msg}%"
+			loop 50 times:
+				broadcast " "
+			broadcast "{@prefix} %colored player's display name%&r Cleared Chat"
+			send "{@prefix} %colored player's display name%&r Cleared Chat" to console
+		if {_msg} is "$ip":
+			cancel event
+			send "{@prefix} &6Running %{_msg}%"
+			send formatted "{@prefix} Server Ip: <sgt:SuperRpgMc.minehut.gg>&x&f&f&6&b&0&0&lSuperRpgMc.minehut.gg" to all players
+		if {_msg} contains "$rules":
+			cancel event
+			loop all players:
+				if {_msg} contains "%loop-player%":
+					make loop-player execute command "/rules"
+					send "{@prefix} made %loop-player% run /rules" to player
+					send "{@prefix} %colored player's display name% forced %loop-player% to run /rules" to console
+		if {_msg} contains "$msg":
+			cancel event
+			if {_msg} is not " ":
+				set {_msg2::*} to message split at "$msg" and "and." and "and" and " "
+				broadcast colored "{@prefix}%{_msg2::2}%"
+				send "{@prefix} %colored player's display name% force WaterBot to say %{_msg}%" to console
+			else:
+				send "this"
+
+
+		if {_msg} contains "$send":
+			cancel event
+			set {_msg2::*} to message split at "$send"
+			broadcast colored "%{_msg2::2}%"
+			send "{@prefix} %colored player's display name% force WaterBot to say %{_msg}% without {@prefix} watermark" to console
+
+
+		if {_msg} is "$help":
+			cancel event
+			send "{@prefix} Help Menu"
+			send ""
+			send "&6<sgt:$info>$info &f|&9 prints waterbot about in chat"
+			send "&6<sgt:$clear>$clear &f|&9 clears chat"
+			send "&6<sgt:$ip>$ip &f|&9 sends server ip in chat"
+			send "&6<sgt:$rules >$rules [player] &f|&9 makes player run /rules"
+			send "&6<sgt:$msg >$msg [msg] &f|&9 sends msg in chat with waterbot"
+
+		if {_msg} is "$restart":
+			cancel event
+			broadcast colored "{@prefix} Shutting Down"
+			set {welcomeText} to text from "https://raw.githubusercontent.com/Nightowl2007W/WaterBot/main/welcome.txt"
+			broadcast colored "{@prefix} Restarted"
+
+
+
+
+on join:
+	if player is "WaterWolf5918":
+		wait 30 ticks
+		broadcast "{@prefix} WaterWolf You Are Back I Was Getting Lonely"
+	if player is "Toni300096" or "WaterWolf5918":
+		set {_v} to text from "https://raw.githubusercontent.com/Nightowl2007W/WaterBot/main/version.txt"
+		set {_v2::*} to {_v} split at "version:"
+		set {_version} to {_v2::2}
+		set {_ver} to "{@ver}"
+		if {_v2::2} isn't {_ver}:
+			wait 40 ticks
+			send formatted "&9WaterBot&6 a new release is available%nl%Download it now <link:https://github.com/Nightowl2007W/WaterBot/releases>&9&l[Click Here]" to player
