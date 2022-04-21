@@ -18,7 +18,7 @@
 #
 
 options:
-	ver: 4.2.0
+	ver: 5.0.3
 	error: &c[ ! ] You May Not Command WaterBot [ ! ]
 	cmdpre: &6<>| &9Run &6|<>
 	prefix: &x&3&3&0&0&f&f&lW&x&2&e&1&a&f&f&la&x&2&9&3&3&f&f&lt&x&2&4&4&d&f&f&le&x&1&f&6&6&f&f&lr&x&1&a&8&0&f&f&lB&x&1&4&9&9&f&f&lo&x&0&f&b&3&f&f&lt&x&0&a&c&c&f&f&l:&x&0&5&e&6&f&f&l-&x&0&0&f&f&f&f&l$&r&6
@@ -81,7 +81,7 @@ on chat:
 		if {_msg} is "$ip":
 			cancel event
 			send "{@prefix} &6Running %{_msg}%"
-			send formatted "{@prefix} Server Ip: <sgt:SuperRpgMc.minehut.gg>&x&f&f&6&b&0&0&lSuperRpgMc.minehut.gg" to all players
+			send formatted "{@prefix} Server Ip: <sgt:sg30.minehut.gg>&#084cfbS&#1458fbG&#2064fb3&#2b70fb0&#377cfc.&#4388fcm&#4f94fci&#5ba0fcn&#66abfce&#72b7fch&#7ec3fcu&#8acffdt&#95dbfd.&#a1e7fdg&#adf3fdg" to all players
 		if {_msg} contains "$rules":
 			cancel event
 			loop all players:
