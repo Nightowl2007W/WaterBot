@@ -1,2 +1,1 @@
-Welcome To SG30 Please Do /rules :)
-
+Test command
