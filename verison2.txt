@@ -1,2 +1,2 @@
-version:99.0.0
-changelog:idk i wanted new stuff
+version:'99.0.0'
+changelog:'idk i wanted new stuff'
